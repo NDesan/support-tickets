@@ -211,7 +211,8 @@
       document.getElementById("doneCard").hidden = false;
       window.scrollTo({top:0,behavior:"smooth"});
     }catch(err){
-      msg.textContent = "L'envoi a échoué. Réessayez dans un instant.";
+      console.error(err);
+      msg.textContent = "L'envoi a échoué : " + (err && err.message ? err.message : "réessayez dans un instant.");
       msg.className = "msg err";
     }finally{
       btn.disabled = false; btn.textContent = "Envoyer le ticket";
